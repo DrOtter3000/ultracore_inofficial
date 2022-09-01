@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 114.5, 162.75 )
 
-[node name="Giraffenmann" type="KinematicBody2D"]
+[node name="Giraffenmann" type="KinematicBody2D" groups=["Giraffe"]]
 scale = Vector2( 0.4, 0.4 )
 script = ExtResource( 2 )
 
@@ -15,5 +15,4 @@ texture = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 7.24999 )
-scale = Vector2( 1, 1 )
 shape = SubResource( 1 )

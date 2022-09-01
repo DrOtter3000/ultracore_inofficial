@@ -1,11 +1,12 @@
 extends KinematicBody2D
 
 
+export (PackedScene) var Shit
 const SPEED = 1000
 const MAX_SPEED = 1000
 var movement = Vector2.ZERO
 var shitstatus = 0
-var maximal_shit_depot = 200
+var maximal_shit_depot = 50
 
 
 func _physics_process(delta):
@@ -28,7 +29,14 @@ func check_input():
 		movement.x = 0
 	
 	if Input.is_action_just_pressed("shit") and shitstatus == maximal_shit_depot:
-		shitstatus = 0
+		release_the_shit()
+
+
+func release_the_shit():
+	shitstatus = 0
+	var b = Shit.instance()
+	owner.add_child(b)
+	b.transform = $ShitPosition.global_transform
 
 
 func check_direction():
