@@ -21,3 +21,8 @@ func check_direction():
 		$Sprite.flip_h = true
 	else:
 		$Sprite.flip_h = false
+
+
+func hurt():
+	print("sound")
+	get_tree().call_group("Player", "update_score")

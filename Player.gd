@@ -6,7 +6,8 @@ const SPEED = 1000
 const MAX_SPEED = 1000
 var movement = Vector2.ZERO
 var shitstatus = 0
-var maximal_shit_depot = 50
+var maximal_shit_depot = 10
+var score = 0
 
 
 func _physics_process(delta):
@@ -16,8 +17,14 @@ func _physics_process(delta):
 	move_and_slide(movement)
 
 
+func update_score():
+	score += 1
+	print(score)
+
+
 func update_gui():
 	get_tree().call_group("GUI", "update_shitometer", shitstatus, maximal_shit_depot)
+	get_tree().call_group("GUI", "update_scores", score)
 
 
 func check_input():
