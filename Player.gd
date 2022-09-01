@@ -26,6 +26,9 @@ func check_input():
 		movement.x = move_toward(0, MAX_SPEED, SPEED)
 	else:
 		movement.x = 0
+	
+	if Input.is_action_just_pressed("shit") and shitstatus == maximal_shit_depot:
+		shitstatus = 0
 
 
 func check_direction():
@@ -39,6 +42,4 @@ func _on_ShitTimer_timeout():
 	$ShitTimer.start()
 	if shitstatus < maximal_shit_depot:
 		shitstatus += 1
-
-
 
