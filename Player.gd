@@ -6,7 +6,7 @@ const SPEED = 1000
 const MAX_SPEED = 1000
 var movement = Vector2.ZERO
 var shitstatus = 0
-var maximal_shit_depot = 10
+var maximal_shit_depot = 500
 var score = 0
 
 
@@ -17,9 +17,11 @@ func _physics_process(delta):
 	move_and_slide(movement)
 
 
+func game_over():
+	print("Game Over")
+
 func update_score():
 	score += 1
-	print(score)
 
 
 func update_gui():
@@ -41,9 +43,9 @@ func check_input():
 
 func release_the_shit():
 	shitstatus = 0
-	var b = Shit.instance()
-	owner.add_child(b)
-	b.transform = $ShitPosition.global_transform
+	var poo = Shit.instance()
+	owner.add_child(poo)
+	poo.transform = $ShitPosition.global_transform
 
 
 func check_direction():
